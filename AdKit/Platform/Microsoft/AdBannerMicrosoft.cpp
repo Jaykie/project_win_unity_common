@@ -1,0 +1,111 @@
+#include "pch.h"
+#include "AdBannerMicrosoft.h"
+#include "Common.h"
+using namespace Common;
+using namespace Windows::Foundation;
+
+using namespace Platform;
+using namespace Windows::Foundation;
+using namespace Windows::Foundation::Collections;
+using namespace Windows::UI::Xaml;
+using namespace Windows::UI::Xaml::Controls;
+using namespace Windows::UI::Xaml::Controls::Primitives;
+using namespace Windows::UI::Xaml::Data;
+using namespace Windows::UI::Xaml::Input;
+using namespace Windows::UI::Xaml::Media;
+using namespace Windows::UI::Xaml::Navigation;
+using namespace Windows::ApplicationModel::Activation;
+using namespace Windows::UI::ViewManagement;
+using namespace Windows::UI::Xaml::Interop;
+
+using namespace Windows::UI::ViewManagement;
+using namespace Windows::Graphics::Display;
+
+AdBannerMicrosoft::AdBannerMicrosoft()
+{
+	adControl = ref new AdControl();
+}
+
+AdBannerMicrosoft^ s_AdBannerMicrosoft = nullptr;
+AdBannerMicrosoft^ AdBannerMicrosoft::Main()
+{
+	if (s_AdBannerMicrosoft != nullptr) {
+		return s_AdBannerMicrosoft;
+	}
+	s_AdBannerMicrosoft = ref new AdBannerMicrosoft();
+	return s_AdBannerMicrosoft;
+}
+
+ 
+void AdBannerMicrosoft::InitAd(String^ appId, String^ appKey)
+{
+
+	// Programatically create an ad control. This must be done from the UI thread.
+
+
+
+	// Set the application id and ad unit id
+	// The application id and ad unit id can be obtained from Dev Center.
+	// See "Monetize with Ads" at https ://msdn.microsoft.com/en-us/library/windows/apps/mt170658.aspx
+	adControl->ApplicationId = L"d25517cb-12d4-4699-8bdc-52040c712cab";
+	adControl->AdUnitId = L"10043134";
+
+	//Size szScreen = GetScreenSize();
+	Rect bounds = ApplicationView::GetForCurrentView()->VisibleBounds;
+	float adheight = (128.0 / 1536)*bounds.Height;
+	// Set the dimensions
+	adControl->Width = bounds.Width;
+	//2048x1536
+	adControl->Height = adheight;
+
+	//±ß¾àŒÙÐÔ
+	auto margin = uiParent->Margin;
+	margin.Top = bounds.Height - adheight;
+	uiParent->Margin = margin;
+
+	// Add event handlers if you want
+	adControl->ErrorOccurred += ref new EventHandler<AdErrorEventArgs^>(this, &AdBannerMicrosoft::OnErrorOccurred);
+	adControl->AdRefreshed += ref new EventHandler<RoutedEventArgs^>(this, &AdBannerMicrosoft::OnAdRefreshed);
+
+	// Add the ad control to the page
+	uiParent->Children->Append(adControl);
+
+
+	//auto parent = safe_cast<Panel^>(button->Parent);
+
+	//auto rootFrame = dynamic_cast<Frame^>(Window::Current->Content);
+	//auto rootFrame = safe_cast<Frame^>(Window::Current->Content);
+	//Frame^ rootFrame = Window::Current->Content;
+	//auto parent = Window::Current->Content;
+	//parent->Add
+}
+
+void AdBannerMicrosoft::ShowAd(bool isShow)
+{
+
+	if (isShow) {
+		uiParent->Visibility = Windows::UI::Xaml::Visibility::Visible;
+	}
+	else {
+		uiParent->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
+
+	}
+}
+ 
+
+// This is an error handler for the ad control.
+void AdBannerMicrosoft::OnErrorOccurred(Object^ sender, AdErrorEventArgs^ e)
+{
+
+	//rootPage->NotifyUser("An error occurred. " + e->ErrorCode.ToString() + ": " + e->ErrorMessage, NotifyType::ErrorMessage);
+}
+
+// This is an event handler for the ad control. It's invoked when the ad is refreshed.
+void AdBannerMicrosoft::OnAdRefreshed(Object^ sender, RoutedEventArgs^ e)
+{
+	// We increment the ad count so that the message changes at every refresh.
+	//adCount++;
+	//rootPage->NotifyUser("Advertisement #" + adCount.ToString(), NotifyType::StatusMessage);
+}
+
+ 

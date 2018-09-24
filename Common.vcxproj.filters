@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="AdKit">
+      <UniqueIdentifier>{f1681701-2a5c-44f2-aac8-64abddbef788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AdKit\Banner">
+      <UniqueIdentifier>{edee8954-f501-485b-83cb-50cf1dde4606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AdKit\Insert">
+      <UniqueIdentifier>{0739ccf7-21b6-48e8-854b-08252daea5ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AdKit\Video">
+      <UniqueIdentifier>{3044ef95-180e-4bea-b46d-8f235b080317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AdKit\Platform">
+      <UniqueIdentifier>{95660078-21cf-4f4d-8b43-b6c2620c5db7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AdKit\Platform\Microsoft">
+      <UniqueIdentifier>{22bf84c3-5d95-4ca3-b5d8-8d782fb9f6d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Common.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="AdKit\Banner\AdBannerCommon.cpp">
+      <Filter>AdKit\Banner</Filter>
+    </ClCompile>
+    <ClCompile Include="AdKit\Insert\AdInsertCommon.cpp">
+      <Filter>AdKit\Insert</Filter>
+    </ClCompile>
+    <ClCompile Include="AdKit\Video\AdVideoCommon.cpp">
+      <Filter>AdKit\Video</Filter>
+    </ClCompile>
+    <ClCompile Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.xaml.cpp" />
+    <ClCompile Include="AdKit\Platform\Microsoft\AdInsertMicrosoft.xaml.cpp" />
+    <ClCompile Include="AppPackageInfo.cpp" />
+    <ClCompile Include="AdKit\Platform\Microsoft\AdVideoBase.xaml.cpp" />
+    <ClCompile Include="AdKit\Platform\Microsoft\AdVideoMicrosoft.cpp">
+      <Filter>AdKit\Platform\Microsoft</Filter>
+    </ClCompile>
+    <ClCompile Include="AdKit\Platform\Microsoft\AdInsertMicrosoft.cpp">
+      <Filter>AdKit\Platform\Microsoft</Filter>
+    </ClCompile>
+    <ClCompile Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.cpp">
+      <Filter>AdKit\Platform\Microsoft</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="AdKit\Banner\AdBannerCommon.h">
+      <Filter>AdKit\Banner</Filter>
+    </ClInclude>
+    <ClInclude Include="AdKit\Insert\AdInsertCommon.h">
+      <Filter>AdKit\Insert</Filter>
+    </ClInclude>
+    <ClInclude Include="AdKit\Video\AdVideoCommon.h">
+      <Filter>AdKit\Video</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonInternal.h" />
+    <ClInclude Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.xaml.h" />
+    <ClInclude Include="AdKit\Platform\Microsoft\AdInsertMicrosoft.xaml.h" />
+    <ClInclude Include="AppPackageInfo.h" />
+    <ClInclude Include="AdKit\Platform\Microsoft\AdVideoBase.xaml.h" />
+    <ClInclude Include="AdKit\Platform\Microsoft\AdVideoMicrosoft.h">
+      <Filter>AdKit\Platform\Microsoft</Filter>
+    </ClInclude>
+    <ClInclude Include="AdKit\Platform\Microsoft\AdInsertMicrosoft.h">
+      <Filter>AdKit\Platform\Microsoft</Filter>
+    </ClInclude>
+    <ClInclude Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.h">
+      <Filter>AdKit\Platform\Microsoft</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AdKit\Insert\AdInsertBase.xaml">
+      <Filter>AdKit\Insert</Filter>
+    </Page>
+    <Page Include="AdKit\Banner\AdBannerBase.xaml">
+      <Filter>AdKit\Banner</Filter>
+    </Page>
+    <Page Include="AdKit\Video\AdVideoBase.xaml">
+      <Filter>AdKit\Video</Filter>
+    </Page>
+  </ItemGroup>
+</Project>
