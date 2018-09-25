@@ -51,26 +51,17 @@ void AdBannerMicrosoft::InitAd(String^ appId, String^ appKey)
 	adControl->ApplicationId = AdConfig::Main()->GetAppId(SOURCE_MICROSOFT);//L"d25517cb-12d4-4699-8bdc-52040c712cab";
 	adControl->AdUnitId = AdConfig::Main()->GetAdId(SOURCE_MICROSOFT, AD_TYPE_BANNER);// L"10043134";
 
-	//Size szScreen = GetScreenSize();
-	Rect bounds = ApplicationView::GetForCurrentView()->VisibleBounds;
-	adHeight = (128.0 / 1536)*bounds.Height;
-	adWidth = bounds.Width;
-	// Set the dimensions
-	adControl->Width = adWidth;
-	//2048x1536
-	adControl->Height = adHeight;
-
-	//±ß¾àŒÙÐÔ
-	auto margin = uiParent->Margin;
-	margin.Top = bounds.Height - adHeight;
-	uiParent->Margin = margin;
+	OnWindowResize();
 
 	// Add event handlers if you want
 	adControl->ErrorOccurred += ref new EventHandler<AdErrorEventArgs^>(this, &AdBannerMicrosoft::OnErrorOccurred);
 	adControl->AdRefreshed += ref new EventHandler<RoutedEventArgs^>(this, &AdBannerMicrosoft::OnAdRefreshed);
 
 	// Add the ad control to the page
-	uiParent->Children->Append(adControl);
+	if (adControl->Parent == nullptr) {
+		uiParent->Children->Append(adControl);
+	}
+	
 
 
 	//auto parent = safe_cast<Panel^>(button->Parent);
@@ -94,6 +85,23 @@ void AdBannerMicrosoft::ShowAd(bool isShow)
 	}
 }
  
+void AdBannerMicrosoft::OnWindowResize() 
+{
+	if ((adControl == nullptr)|| (uiParent == nullptr)) {
+		return;
+	}
+	Rect bounds = ApplicationView::GetForCurrentView()->VisibleBounds;
+	adHeight = (128.0 / 1536)*bounds.Height;
+	adWidth = bounds.Width;
+	// Set the dimensions
+	adControl->Width = adWidth;
+	//2048x1536
+	adControl->Height = adHeight;
+	//±ß¾àŒÙÐÔ
+	auto margin = uiParent->Margin;
+	margin.Top = bounds.Height - adHeight;
+	uiParent->Margin = margin;
+}
 
 // This is an error handler for the ad control.
 void AdBannerMicrosoft::OnErrorOccurred(Object^ sender, AdErrorEventArgs^ e)

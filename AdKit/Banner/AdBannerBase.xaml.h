@@ -27,6 +27,7 @@ namespace Common
  
 	virtual void  InitAd(String^ appId, String^ appKey);
 	virtual	void ShowAd(bool isShow);
+	virtual	void OnWindowResize();
 
 		void SetScreenSize(int w, int h);
 		void SetScreenOffset(int x, int y);
@@ -39,5 +40,9 @@ namespace Common
 		int screenOftY;//屏幕分辨率
 		float adWidth;//bounds
 		float adHeight;//bounds
+
+		//windows size change
+		Windows::Foundation::EventRegistrationToken m_OnResizeRegistrationToken; 
+		 
 	};
 }

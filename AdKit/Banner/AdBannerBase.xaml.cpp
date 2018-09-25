@@ -25,6 +25,11 @@ AdBannerBase::AdBannerBase()
 {
 	//InitializeComponent();
 	SetScreenOffset(0, 0);
+
+	m_OnResizeRegistrationToken = Window::Current->SizeChanged += ref new WindowSizeChangedEventHandler([this](Object^, WindowSizeChangedEventArgs^)
+	{
+		OnWindowResize();
+	});
 }
 
 
@@ -75,5 +80,12 @@ int AdBannerBase::GetScreenPixsel(float value)
 	double scaleFactor = DisplayInformation::GetForCurrentView()->RawPixelsPerViewPixel;
 	int ret = value*scaleFactor;
 	return ret;
+}
+
+
+
+void AdBannerBase::OnWindowResize()
+{
+	 
 }
  

@@ -21,6 +21,7 @@ namespace Common
 
 		virtual void InitAd(String^ appId, String^ appKey) override;
 		virtual void ShowAd(bool isShow) override;
+		virtual	void OnWindowResize() override;
 
 		void OnErrorOccurred(Platform::Object^ sender, Microsoft::Advertising::WinRT::UI::AdErrorEventArgs^ e);
 		void OnAdRefreshed(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
