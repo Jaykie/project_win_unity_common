@@ -1,7 +1,8 @@
 #pragma once
 
 #include "AdKit/Insert/AdInsertBase.xaml.h"
-
+#include "AdInsertCallBack.h"
+#include "AdKit/AdConfig/AdConfig.h"
 using namespace Common;
 
 

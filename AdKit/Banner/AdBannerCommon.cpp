@@ -63,7 +63,7 @@ AdBannerCommon* AdBannerCommon::Main()
 void AdBannerCommon::CreateAdBase(String^ source)
 {
 
-	//if (source == SOURCE_MICROSOFT)
+	if (source == SOURCE_MICROSOFT)
 	{
 
 
@@ -111,7 +111,10 @@ void AdBannerCommon::SetScreenSize(int w, int h)
 	
 	Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([this, w,h]
 	{
-		adBannerBase->SetScreenSize(w, h);
+		if (adBannerBase != nullptr) {
+			adBannerBase->SetScreenSize(w, h);
+		}
+		
 
 	}));
 }
@@ -120,8 +123,9 @@ void AdBannerCommon::SetScreenOffset(int x, int y)
 
 	Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([this, x,y]
 	{
-		adBannerBase->SetScreenOffset(x, y);
-
+		if (adBannerBase != nullptr) {
+			adBannerBase->SetScreenOffset(x, y);
+		}
 	}));
 }
 

@@ -36,10 +36,7 @@
     <ClCompile Include="AdKit\Video\AdVideoCommon.cpp">
       <Filter>AdKit\Video</Filter>
     </ClCompile>
-    <ClCompile Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.xaml.cpp" />
-    <ClCompile Include="AdKit\Platform\Microsoft\AdInsertMicrosoft.xaml.cpp" />
     <ClCompile Include="AppPackageInfo.cpp" />
-    <ClCompile Include="AdKit\Platform\Microsoft\AdVideoBase.xaml.cpp" />
     <ClCompile Include="AdKit\Platform\Microsoft\AdVideoMicrosoft.cpp">
       <Filter>AdKit\Platform\Microsoft</Filter>
     </ClCompile>
@@ -49,6 +46,13 @@
     <ClCompile Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.cpp">
       <Filter>AdKit\Platform\Microsoft</Filter>
     </ClCompile>
+    <ClCompile Include="AdKit\Banner\AdBannerBase.xaml.cpp" />
+    <ClCompile Include="AdKit\Insert\AdInsertBase.xaml.cpp" />
+    <ClCompile Include="AdKit\Video\AdVideoBase.xaml.cpp" />
+    <ClCompile Include="AdKit\Banner\AdBannerCallBack.cpp" />
+    <ClCompile Include="AdKit\Video\AdVideoCallBack.cpp" />
+    <ClCompile Include="AdKit\Insert\AdInsertCallBack.cpp" />
+    <ClCompile Include="AdKit\AdConfig\AdConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
@@ -64,10 +68,7 @@
       <Filter>AdKit\Video</Filter>
     </ClInclude>
     <ClInclude Include="CommonInternal.h" />
-    <ClInclude Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.xaml.h" />
-    <ClInclude Include="AdKit\Platform\Microsoft\AdInsertMicrosoft.xaml.h" />
     <ClInclude Include="AppPackageInfo.h" />
-    <ClInclude Include="AdKit\Platform\Microsoft\AdVideoBase.xaml.h" />
     <ClInclude Include="AdKit\Platform\Microsoft\AdVideoMicrosoft.h">
       <Filter>AdKit\Platform\Microsoft</Filter>
     </ClInclude>
@@ -77,6 +78,13 @@
     <ClInclude Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.h">
       <Filter>AdKit\Platform\Microsoft</Filter>
     </ClInclude>
+    <ClInclude Include="AdKit\Banner\AdBannerBase.xaml.h" />
+    <ClInclude Include="AdKit\Insert\AdInsertBase.xaml.h" />
+    <ClInclude Include="AdKit\Video\AdVideoBase.xaml.h" />
+    <ClInclude Include="AdKit\Banner\AdBannerCallBack.h" />
+    <ClInclude Include="AdKit\Video\AdVideoCallBack.h" />
+    <ClInclude Include="AdKit\Insert\AdInsertCallBack.h" />
+    <ClInclude Include="AdKit\AdConfig\AdConfig.h" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AdKit\Insert\AdInsertBase.xaml">

@@ -1,6 +1,5 @@
 #pragma once
 #include "AdKit/Banner/AdBannerBase.xaml.h"
-
 using namespace Common;
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -13,7 +12,7 @@ using namespace Microsoft::Advertising::WinRT::UI;
 namespace Common
 {
 	public ref class AdBannerMicrosoft sealed :
-		public AdBannerBase
+		public ::AdBannerBase
 	{
 	internal:
 		AdBannerMicrosoft();

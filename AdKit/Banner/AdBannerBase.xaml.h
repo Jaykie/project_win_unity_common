@@ -32,8 +32,12 @@ namespace Common
 		void SetScreenOffset(int x, int y);
 		void SetUIParent(Panel^ parent);
 		Size GetScreenSize();
+		int GetScreenPixsel(float value);
 
 		Panel^ uiParent;
-
+		int screenOftX;//屏幕分辨率
+		int screenOftY;//屏幕分辨率
+		float adWidth;//bounds
+		float adHeight;//bounds
 	};
 }

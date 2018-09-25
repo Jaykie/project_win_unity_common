@@ -232,6 +232,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AdKit\AdConfig\AdConfig.h" />
+    <ClInclude Include="AdKit\Banner\AdBannerCallBack.h" />
     <ClInclude Include="AdKit\Banner\AdBannerBase.xaml.h">
       <DependentUpon>AdKit\Banner\AdBannerBase.xaml</DependentUpon>
     </ClInclude>
@@ -239,6 +241,7 @@
     <ClInclude Include="AdKit\Insert\AdInsertBase.xaml.h">
       <DependentUpon>AdKit\Insert\AdInsertBase.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="AdKit\Insert\AdInsertCallBack.h" />
     <ClInclude Include="AdKit\Insert\AdInsertCommon.h" />
     <ClInclude Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.h" />
     <ClInclude Include="AdKit\Platform\Microsoft\AdInsertMicrosoft.h" />
@@ -246,6 +249,7 @@
     <ClInclude Include="AdKit\Video\AdVideoBase.xaml.h">
       <DependentUpon>AdKit\Video\AdVideoBase.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="AdKit\Video\AdVideoCallBack.h" />
     <ClInclude Include="AdKit\Video\AdVideoCommon.h" />
     <ClInclude Include="AppPackageInfo.h" />
     <ClInclude Include="Common.h" />
@@ -254,6 +258,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdKit\AdConfig\AdConfig.cpp" />
+    <ClCompile Include="AdKit\Banner\AdBannerCallBack.cpp" />
     <ClCompile Include="AdKit\Banner\AdBannerBase.xaml.cpp">
       <DependentUpon>AdKit\Banner\AdBannerBase.xaml</DependentUpon>
     </ClCompile>
@@ -261,6 +267,7 @@
     <ClCompile Include="AdKit\Insert\AdInsertBase.xaml.cpp">
       <DependentUpon>AdKit\Insert\AdInsertBase.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="AdKit\Insert\AdInsertCallBack.cpp" />
     <ClCompile Include="AdKit\Insert\AdInsertCommon.cpp" />
     <ClCompile Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.cpp" />
     <ClCompile Include="AdKit\Platform\Microsoft\AdInsertMicrosoft.cpp" />
@@ -268,6 +275,7 @@
     <ClCompile Include="AdKit\Video\AdVideoBase.xaml.cpp">
       <DependentUpon>AdKit\Video\AdVideoBase.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="AdKit\Video\AdVideoCallBack.cpp" />
     <ClCompile Include="AdKit\Video\AdVideoCommon.cpp" />
     <ClCompile Include="AppPackageInfo.cpp" />
     <ClCompile Include="Common.cpp" />

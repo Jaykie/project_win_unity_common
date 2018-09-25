@@ -65,7 +65,7 @@ AdInsertCommon::~AdInsertCommon()
  void AdInsertCommon::CreateAdBase(String^ source)
  {
 
-	 //if (source == SOURCE_MICROSOFT)
+	 if (source == SOURCE_MICROSOFT)
 	 {
 
 

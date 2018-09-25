@@ -1,9 +1,10 @@
 #include "pch.h"
 #include "AdVideoMicrosoft.h"
 #include "Common.h"
+#include "AdKit/Video/AdVideoCommon.h"
 using namespace Common;
 using namespace Windows::Foundation;
-
+using namespace Windows::ApplicationModel::Core;
 
 AdVideoMicrosoft^ s_AdVideoMicrosoft = nullptr;
 AdVideoMicrosoft^ AdVideoMicrosoft::Main()
@@ -56,7 +57,10 @@ void AdVideoMicrosoft::ShowAd()
 		return;
 	}
 	isLoading = true;
-	interstitialAd->RequestAd(AdType::Video, L"d25517cb-12d4-4699-8bdc-52040c712cab", L"11389925");
+	//interstitialAd->RequestAd(AdType::Video, L"d25517cb-12d4-4699-8bdc-52040c712cab", L"11389925");
+	String^ appId = AdConfig::Main()->GetAppId(SOURCE_MICROSOFT);
+	String^ adId = AdConfig::Main()->GetAdId(SOURCE_MICROSOFT, AD_TYPE_VIDEO);
+	interstitialAd->RequestAd(AdType::Video, appId, adId);
 }
  
 
@@ -68,12 +72,16 @@ void AdVideoMicrosoft::OnAdReady(Object^ sender, Object^ e)
 	isLoading = false;
 	// The ad is ready to show; show it.
 	interstitialAd->Show();
+	//关闭app窗口标题栏
+	CoreApplication::GetCurrentView()->TitleBar->ExtendViewIntoTitleBar = true;
 }
 
 // This is an event handler for the interstitial ad. It is triggered when the interstitial ad is cancelled.
 void AdVideoMicrosoft::OnAdCancelled(Object^ sender, Object^ e)
 {
 	isLoading = false;
+	
+	AdVideoCallBack::Main()->AdDidClose();
 	//rootPage->NotifyUser("Ad cancelled", NotifyType::StatusMessage);
 }
 
@@ -81,6 +89,7 @@ void AdVideoMicrosoft::OnAdCancelled(Object^ sender, Object^ e)
 void AdVideoMicrosoft::OnAdCompleted(Object^ sender, Object^ e)
 {
 	isLoading = false;
+	AdVideoCallBack::Main()->AdDidFinish();
 	//rootPage->NotifyUser("Ad completed", NotifyType::StatusMessage);
 }
 
@@ -88,5 +97,6 @@ void AdVideoMicrosoft::OnAdCompleted(Object^ sender, Object^ e)
 void AdVideoMicrosoft::OnErrorOccurred(Object^ sender, AdErrorEventArgs^ e)
 {
 	isLoading = false;
+	AdVideoCallBack::Main()->AdDidFail();
 	//rootPage->NotifyUser("An error occurred. " + e->ErrorCode.ToString() + ": " + e->ErrorMessage, NotifyType::ErrorMessage);
 }

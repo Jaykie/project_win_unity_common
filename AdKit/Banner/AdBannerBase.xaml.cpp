@@ -24,6 +24,7 @@ using namespace Windows::UI::Xaml::Navigation;
 AdBannerBase::AdBannerBase()
 {
 	//InitializeComponent();
+	SetScreenOffset(0, 0);
 }
 
 
@@ -50,7 +51,8 @@ void AdBannerBase::SetScreenSize(int w, int h)
 }
 void AdBannerBase::SetScreenOffset(int x, int y)
 {
-
+	screenOftX = x;
+	screenOftY = y;
 }
 void AdBannerBase::SetUIParent(Panel^ parent)
 {
@@ -65,5 +67,13 @@ Size AdBannerBase::GetScreenSize()
 	double scaleFactor = DisplayInformation::GetForCurrentView()->RawPixelsPerViewPixel;
 	Size size = Size(bounds.Width*scaleFactor, bounds.Height*scaleFactor);
 	return size;
+}
+
+int AdBannerBase::GetScreenPixsel(float value)
+{
+	 
+	double scaleFactor = DisplayInformation::GetForCurrentView()->RawPixelsPerViewPixel;
+	int ret = value*scaleFactor;
+	return ret;
 }
  

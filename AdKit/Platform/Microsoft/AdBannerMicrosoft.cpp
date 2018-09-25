@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "AdBannerMicrosoft.h"
+#include "AdKit/Banner/AdBannerCommon.h"
 #include "Common.h"
 using namespace Common;
 using namespace Windows::Foundation;
@@ -47,20 +48,21 @@ void AdBannerMicrosoft::InitAd(String^ appId, String^ appKey)
 	// Set the application id and ad unit id
 	// The application id and ad unit id can be obtained from Dev Center.
 	// See "Monetize with Ads" at https ://msdn.microsoft.com/en-us/library/windows/apps/mt170658.aspx
-	adControl->ApplicationId = L"d25517cb-12d4-4699-8bdc-52040c712cab";
-	adControl->AdUnitId = L"10043134";
+	adControl->ApplicationId = AdConfig::Main()->GetAppId(SOURCE_MICROSOFT);//L"d25517cb-12d4-4699-8bdc-52040c712cab";
+	adControl->AdUnitId = AdConfig::Main()->GetAdId(SOURCE_MICROSOFT, AD_TYPE_BANNER);// L"10043134";
 
 	//Size szScreen = GetScreenSize();
 	Rect bounds = ApplicationView::GetForCurrentView()->VisibleBounds;
-	float adheight = (128.0 / 1536)*bounds.Height;
+	adHeight = (128.0 / 1536)*bounds.Height;
+	adWidth = bounds.Width;
 	// Set the dimensions
-	adControl->Width = bounds.Width;
+	adControl->Width = adWidth;
 	//2048x1536
-	adControl->Height = adheight;
+	adControl->Height = adHeight;
 
 	//±ß¾àŒÙÐÔ
 	auto margin = uiParent->Margin;
-	margin.Top = bounds.Height - adheight;
+	margin.Top = bounds.Height - adHeight;
 	uiParent->Margin = margin;
 
 	// Add event handlers if you want
@@ -96,7 +98,7 @@ void AdBannerMicrosoft::ShowAd(bool isShow)
 // This is an error handler for the ad control.
 void AdBannerMicrosoft::OnErrorOccurred(Object^ sender, AdErrorEventArgs^ e)
 {
-
+	AdBannerCallBack::Main()->AdDidFail();
 	//rootPage->NotifyUser("An error occurred. " + e->ErrorCode.ToString() + ": " + e->ErrorMessage, NotifyType::ErrorMessage);
 }
 
@@ -106,6 +108,8 @@ void AdBannerMicrosoft::OnAdRefreshed(Object^ sender, RoutedEventArgs^ e)
 	// We increment the ad count so that the message changes at every refresh.
 	//adCount++;
 	//rootPage->NotifyUser("Advertisement #" + adCount.ToString(), NotifyType::StatusMessage);
+ 
+	AdBannerCallBack::Main()->AdDidFinish(GetScreenPixsel(adWidth), GetScreenPixsel(adHeight));
 }
 
  
