@@ -22,15 +22,30 @@ AdInsertCallBack* AdInsertCallBack::Main()
 	return s_AdInsertCallBack;
 }
 
+void AdInsertCallBack::SetCallbackUnity(AdInsertCallbackUnity callback)
+{
+	adInsertCallbackUnity = callback;
+}
+
 void AdInsertCallBack::AdDidFinish()
 {
+	if (adInsertCallbackUnity != nullptr) {
+		std::string str = PlatformString2string(source);
+		adInsertCallbackUnity((char *)str.c_str(), "AdDidFinish");
+	}
 }
 
 void AdInsertCallBack::AdDidFail()
 {
-
+	if (adInsertCallbackUnity != nullptr) {
+		std::string str = PlatformString2string(source);
+		adInsertCallbackUnity((char *)str.c_str(), "AdDidFail");
+	}
 } 
 void AdInsertCallBack::AdDidClose()
 {
-
+	if (adInsertCallbackUnity != nullptr) {
+		std::string str = PlatformString2string(source);
+		adInsertCallbackUnity((char *)str.c_str(), "AdDidClose");
+	}
 }

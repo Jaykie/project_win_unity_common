@@ -7,6 +7,9 @@
 //#include "AdKit/Insert/AdInsertCommon.h"
 //#include "AdKit/Video/AdVideoCommon.h"
 #define DLLExport _declspec(dllexport)
+typedef void(__stdcall *AdBannerCallbackUnity)(char* source,char* method,int w,int h);
+typedef void(__stdcall *AdInsertCallbackUnity)(char* source, char* method);
+typedef void(__stdcall *AdVideoCallbackUnity)(char* source, char* method);
 
 /* @moon
 要引用Windows相关reference需要将工程的consume windows runtime extension 设置为yes
@@ -25,12 +28,14 @@ extern "C"
 	DLLExport void AdBanner_ShowAd(bool isShow);
 	DLLExport void AdBanner_SetScreenSize(int w, int h);
 	DLLExport void AdBanner_SetScreenOffset(int x, int y);
+	DLLExport void AdBanner_SetCallbackUnity(AdBannerCallbackUnity callback);//c#回调函数
 
 	//insert
 
 	DLLExport void AdInsert_InitAd(char* source);
 	DLLExport void AdInsert_ShowAd();
 	DLLExport void AdInsert_SetObjectInfo(char* objName);
+	DLLExport void AdInsert_SetCallbackUnity(AdInsertCallbackUnity callback);//c#回调函数
 
 	//Video 
 	DLLExport void AdVideo_InitAd(char* source);
@@ -38,7 +43,8 @@ extern "C"
 	DLLExport void AdVideo_ShowAd();
 	DLLExport void AdVideo_SetObjectInfo(char* objName, char*objMethod);
 	DLLExport void AdVideo_OnClickAd();
-	
+	DLLExport void AdVideo_SetCallbackUnity(AdVideoCallbackUnity callback);//c#回调函数
+
 	//adconfig 
 	DLLExport void AdConfig_InitPlatform(char* source, int type, char* appId, char* appKey, char* adKey);
 	DLLExport void AdConfig_SetNoAd();

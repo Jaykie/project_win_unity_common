@@ -37,6 +37,10 @@ using namespace Windows::UI::Core;
 	 {
 		  AdBannerCommon::Main()->SetUIParent(parent);
 	 }
+	  void AdBanner_SetCallbackUnity(AdBannerCallbackUnity callback)
+	  {
+		  AdBannerCallBack::Main()->SetCallbackUnity(callback);
+	  }
 
 
 AdBannerCommon *s_AdBannerCommon = NULL;
@@ -62,15 +66,15 @@ AdBannerCommon* AdBannerCommon::Main()
 
 void AdBannerCommon::CreateAdBase(String^ source)
 {
+	AdBannerCallBack::Main()->source = source;
 
 	if (source == SOURCE_MICROSOFT)
-	{
-
-
-		Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([this]
+	{ 
+		Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([this, source]
 		{
 
 			adBannerBase = AdBannerMicrosoft::Main();
+			adBannerBase->source = source;
 			adBannerBase->SetUIParent(uiParent);
 		}));
 	}
@@ -127,7 +131,8 @@ void AdBannerCommon::SetScreenOffset(int x, int y)
 			adBannerBase->SetScreenOffset(x, y);
 		}
 	}));
-}
+} 
+
 
 
  

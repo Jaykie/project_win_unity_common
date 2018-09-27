@@ -37,7 +37,10 @@ using namespace Microsoft::Advertising::WinRT::UI;
 		 AdInsertCommon::Main()->SetObjectInfo(objName);
 	} 
 
- 
+	 void AdInsert_SetCallbackUnity(AdInsertCallbackUnity callback)
+	 {
+		 AdInsertCallBack::Main()->SetCallbackUnity(callback);
+	 }
 
 AdInsertCommon *s_AdInsertCommon = NULL;
 
@@ -64,7 +67,7 @@ AdInsertCommon::~AdInsertCommon()
 
  void AdInsertCommon::CreateAdBase(String^ source)
  {
-
+	 AdInsertCallBack::Main()->source = source;
 	 if (source == SOURCE_MICROSOFT)
 	 {
 

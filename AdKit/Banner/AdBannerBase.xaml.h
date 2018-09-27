@@ -6,6 +6,7 @@
 #pragma once
 
 #include "AdKit\Banner\AdBannerBase.g.h"
+//
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::UI::Xaml::Controls;
@@ -32,6 +33,7 @@ namespace Common
 		void SetScreenSize(int w, int h);
 		void SetScreenOffset(int x, int y);
 		void SetUIParent(Panel^ parent);
+	
 		Size GetScreenSize();
 		int GetScreenPixsel(float value);
 
@@ -40,6 +42,8 @@ namespace Common
 		int screenOftY;//屏幕分辨率
 		float adWidth;//bounds
 		float adHeight;//bounds
+		String^ source;
+
 
 		//windows size change
 		Windows::Foundation::EventRegistrationToken m_OnResizeRegistrationToken; 

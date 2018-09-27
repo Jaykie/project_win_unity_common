@@ -28,7 +28,7 @@ namespace Common
 
 	private:
 		AdControl^ adControl;
-	
+		
 
 	};
 }

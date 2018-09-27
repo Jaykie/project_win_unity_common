@@ -65,6 +65,7 @@ void AdBannerBase::SetUIParent(Panel^ parent)
   
 }
 
+
 //获取屏幕分辨率
 Size AdBannerBase::GetScreenSize()
 {

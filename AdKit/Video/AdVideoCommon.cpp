@@ -27,8 +27,12 @@
 	 {
 		 AdVideoCommon::Main()->OnClickAd();
 	 }
+	 void AdVideo_SetCallbackUnity(AdVideoCallbackUnity callback)
+	 {
+		 AdVideoCallBack::Main()->SetCallbackUnity(callback);
+	 }
 	
-		 AdVideoCommon* s_AdVideoCommon = NULL;
+	AdVideoCommon* s_AdVideoCommon = NULL;
 	 AdVideoCommon* AdVideoCommon::Main()
 	 {
 		 if (s_AdVideoCommon != NULL) {
@@ -50,7 +54,7 @@ AdVideoCommon::~AdVideoCommon()
 
 void AdVideoCommon::CreateAdBase(String^ source)
 {
-
+	AdVideoCallBack::Main()->source = source;
 	if (source == SOURCE_MICROSOFT) 
 	{
 	

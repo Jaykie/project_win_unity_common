@@ -18,8 +18,7 @@ public:
 	void SetUIParent(Panel^ parent);
 	void ShowAd(bool isShow);
 	void SetScreenSize(int w, int h);
-	void SetScreenOffset(int x, int y);
-
+	void SetScreenOffset(int x, int y); 
 private:
 	Panel^ uiParent;
 	AdBannerBase^ adBannerBase;
