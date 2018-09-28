@@ -60,6 +60,10 @@ void AdVideoMicrosoft::ShowAd()
 	//interstitialAd->RequestAd(AdType::Video, L"d25517cb-12d4-4699-8bdc-52040c712cab", L"11389925");
 	String^ appId = AdConfig::Main()->GetAppId(SOURCE_MICROSOFT);
 	String^ adId = AdConfig::Main()->GetAdId(SOURCE_MICROSOFT, AD_TYPE_VIDEO);
+	OutputDebugString(appId->Data());
+	OutputDebugString(L"\n");
+	OutputDebugString(adId->Data());
+	OutputDebugString(L"\n");
 	interstitialAd->RequestAd(AdType::Video, appId, adId);
 }
  

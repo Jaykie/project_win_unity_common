@@ -50,7 +50,10 @@ void AdBannerMicrosoft::InitAd(String^ appId, String^ appKey)
 	// See "Monetize with Ads" at https ://msdn.microsoft.com/en-us/library/windows/apps/mt170658.aspx
 	adControl->ApplicationId = AdConfig::Main()->GetAppId(SOURCE_MICROSOFT);//L"d25517cb-12d4-4699-8bdc-52040c712cab";
 	adControl->AdUnitId = AdConfig::Main()->GetAdId(SOURCE_MICROSOFT, AD_TYPE_BANNER);// L"10043134";
-
+	OutputDebugString(adControl->ApplicationId->Data());
+	OutputDebugString(L"\n");
+	OutputDebugString(adControl->AdUnitId->Data());
+	OutputDebugString(L"\n");
 	OnWindowResize();
 
 	// Add event handlers if you want
