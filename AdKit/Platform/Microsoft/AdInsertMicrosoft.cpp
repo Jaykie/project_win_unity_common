@@ -59,7 +59,7 @@ void AdInsertMicrosoft::ShowAd()
 	}
 	isLoading = true;
 
-	//interstitialAd->RequestAd(AdType::Display, L"d25517cb-12d4-4699-8bdc-52040c712cab", L"11389925");
+	
 	String^ appId = AdConfig::Main()->GetAppId(SOURCE_MICROSOFT); 
 	String^ adId = AdConfig::Main()->GetAdId(SOURCE_MICROSOFT, AD_TYPE_INSERT);
 	OutputDebugString(appId->Data());
@@ -67,7 +67,10 @@ void AdInsertMicrosoft::ShowAd()
 	OutputDebugString(adId->Data());
 	OutputDebugString(L"\n");
 	interstitialAd->RequestAd(AdType::Display, appId, adId);
-
+	//interstitialAd->RequestAd(AdType::Display, L"d25517cb-12d4-4699-8bdc-52040c712cab", L"11389925");
+	//interstitialAd->RequestAd(AdType::Display, L"9ngqjvv1jh1x", L"1100032471");
+	//interstitialAd->RequestAd(AdType::Display, L"9n1lt0gg40ht", L"1100032935");
+	  
 }
 
 
