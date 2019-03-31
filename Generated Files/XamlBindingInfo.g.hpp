@@ -100,6 +100,7 @@ void ::XamlBindingInfo::XamlBindings::Recycle()
     this->_pBindings->Recycle();
 }
 
+
 // XamlBindingTrackingBase
 
 ::XamlBindingInfo::XamlBindingTrackingBase::XamlBindingTrackingBase()

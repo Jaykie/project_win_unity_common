@@ -65,7 +65,6 @@ namespace XamlTypeInfo
             std::map<::Platform::String^, ::Windows::UI::Xaml::Markup::IXamlMember^> _xamlMembers;
             ::Windows::UI::Xaml::Markup::IXamlType^ CreateXamlType(::Platform::String^ typeName);
             ::Windows::UI::Xaml::Markup::IXamlMember^ CreateXamlMember(::Platform::String^ longMemberName);
-
         };
 
         ref class XamlSystemBaseType sealed : public ::Windows::UI::Xaml::Markup::IXamlType

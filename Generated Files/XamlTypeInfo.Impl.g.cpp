@@ -63,7 +63,7 @@ Platform::Array<::Windows::UI::Xaml::Markup::XmlnsDefinition>^ ::Common::Common_
 ::Windows::UI::Xaml::Markup::IXamlType^ ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider::GetXamlTypeByType(::Windows::UI::Xaml::Interop::TypeName type)
 {
     auto xamlType = GetXamlTypeByName(type.Name);
-            return xamlType;
+    return xamlType;
 }
 
 ::Windows::UI::Xaml::Markup::IXamlType^ ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider::GetXamlTypeByName(::Platform::String^ typeName)
@@ -86,7 +86,6 @@ Platform::Array<::Windows::UI::Xaml::Markup::XmlnsDefinition>^ ::Common::Common_
     }
 
     xamlType = CreateXamlType(typeName);
-
     if (xamlType != nullptr)
     {
         Platform::WeakReference wr(xamlType);
