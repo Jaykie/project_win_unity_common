@@ -93,11 +93,24 @@ void AdVideoCommon::InitAd(char *source)
 void AdVideoCommon::PreLoad(char *source)
 {
 	InitAd(source);
+	LoadAd();
 }
 
 void AdVideoCommon::SetType(int type)
 {
 }
+
+void AdVideoCommon::LoadAd()
+{
+
+	Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([this] {
+																									 if (adVideoBase != nullptr)
+																									 {
+																										 adVideoBase->LoadAd();
+																									 }
+																								 }));
+}
+
 void AdVideoCommon::ShowAd()
 {
 

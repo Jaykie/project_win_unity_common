@@ -26,18 +26,15 @@ AdVideoBase::AdVideoBase()
 	//InitializeComponent();
 }
 
- void  AdVideoBase::InitAd(String^ appId, String^ appKey)
+void AdVideoBase::InitAd(String ^ appId, String ^ appKey)
 {
-
 }
- void AdVideoBase::ShowAd()
-
- {
-
- }
- void AdVideoBase::SetObjectInfo(String^ objName, String^ objMethod)
-
- {
-
- }
-
+void AdVideoBase::ShowAd()
+{
+}
+void AdVideoBase::LoadAd()
+{
+}
+void AdVideoBase::SetObjectInfo(String ^ objName, String ^ objMethod)
+{
+}

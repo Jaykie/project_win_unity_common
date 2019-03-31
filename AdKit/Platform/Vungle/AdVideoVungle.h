@@ -17,8 +17,8 @@ namespace Common
 
 		 virtual void  InitAd(String^ appId, String^ appKey) override;
 		 virtual void ShowAd() override;
-		 virtual void SetObjectInfo(String^ objName, String^ objMethod) override;
-
+		 virtual void LoadAd() override;
+		 virtual void SetObjectInfo(String^ objName, String^ objMethod) override; 
 	private:
 		InterstitialAd^ interstitialAd;
 		bool isLoading;

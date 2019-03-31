@@ -39,6 +39,9 @@ void AdVideoVungle::SetObjectInfo(String ^ objName, String ^ objMethod)
 {
 }
 
+void AdVideoVungle::LoadAd()
+{
+}
 void AdVideoVungle::ShowAd()
 {
 	//this.Invoke(() = >

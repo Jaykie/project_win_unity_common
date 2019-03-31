@@ -13,10 +13,12 @@ public:
 	static  AdVideoCommon* Main();
 	void CreateAdBase(String^ source);
 	void InitAd(char* source);
+	void PreLoad(char *source);
 	void SetType(int type);
 	void ShowAd();
 	void SetObjectInfo(char* objName, char*objMethod);
 	void OnClickAd();
+	void LoadAd();
 
 protected:
 	AdVideoBase^ adVideoBase;
