@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "Common.h"
 #include "AdKit/Platform/Microsoft/AdBannerMicrosoft.h"
-#include "AdKit/Platform/Microsoft/AdBannerVungle.h"
+#include "AdKit/Platform/Vungle/AdBannerVungle.h"
 //#include <msclr\marshal.h>
 /* @moon
 Ҫ����Windows���reference��Ҫ�����̵�consume windows runtime extension ����Ϊyes

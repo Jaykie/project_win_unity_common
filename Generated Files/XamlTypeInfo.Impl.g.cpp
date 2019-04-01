@@ -391,6 +391,11 @@ void ::XamlTypeInfo::InfoProvider::XamlUserType::KeyTypeName::set(::Platform::St
     _keyTypeName = value;
 }
 
+::Windows::UI::Xaml::Markup::IXamlType^ ::XamlTypeInfo::InfoProvider::XamlUserType::BoxedType::get()
+{
+    return _boxedType;
+}
+
 ::Windows::UI::Xaml::Markup::IXamlMember^ ::XamlTypeInfo::InfoProvider::XamlUserType::GetMember(::Platform::String^ name)
 {
     auto val = _memberNames.find(name);
@@ -423,6 +428,12 @@ void ::XamlTypeInfo::InfoProvider::XamlUserType::RunInitializer()
 
 ::Platform::Object^ ::XamlTypeInfo::InfoProvider::XamlUserType::CreateFromString(::Platform::String^ input)
 {
+    // For boxed types, run the boxed type's CreateFromString method and boxing
+    if (BoxedType != nullptr)
+    {
+        return BoxedType->CreateFromString(input);
+    }
+
     if (CreateFromStringMethod != nullptr)
     {
         return (*CreateFromStringMethod)(input);
@@ -431,6 +442,11 @@ void ::XamlTypeInfo::InfoProvider::XamlUserType::RunInitializer()
     {
         return FromStringConverter(this, input);
     }
+}
+
+void ::XamlTypeInfo::InfoProvider::XamlUserType::SetBoxedType(::Windows::UI::Xaml::Markup::IXamlType^ boxedType)
+{
+    _boxedType = boxedType;
 }
 
 void ::XamlTypeInfo::InfoProvider::XamlUserType::AddMemberName(::Platform::String^ shortName)

@@ -65,6 +65,7 @@ struct TypeInfo
     int     createFromStringIndex;
     ::Windows::UI::Xaml::Interop::TypeKind kindofType;
     unsigned int flags;
+    int boxedTypeIndex;
 };
 
 const TypeInfo TypeInfos[] = 
@@ -75,30 +76,35 @@ const TypeInfo TypeInfos[] =
     3, // Windows.UI.Xaml.Controls.Page
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
+    -1,
     //   1
     L"Common.AdBannerBase", L"",
     nullptr, nullptr, nullptr, nullptr,
     3, // Windows.UI.Xaml.Controls.Page
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
+    -1,
     //   2
     L"Common.AdInsertBase", L"",
     nullptr, nullptr, nullptr, nullptr,
     3, // Windows.UI.Xaml.Controls.Page
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
+    -1,
     //   3
     L"Windows.UI.Xaml.Controls.Page", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
+    -1,
     //   4
     L"Windows.UI.Xaml.Controls.UserControl", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
+    -1,
     //  Last type here is for padding
     L"", L"",
     nullptr, nullptr, nullptr, nullptr,
@@ -193,6 +199,7 @@ const TypeInfo* GetTypeInfo(::Platform::String^ typeName)
         userType->IsBindable = pTypeInfo->flags & TypeInfo_Flags_IsBindable;
         userType->IsMarkupExtension = pTypeInfo->flags & TypeInfo_Flags_IsMarkupExtension;
         userType->CreateFromStringMethod = nullptr;
+        userType->SetBoxedType(this->GetXamlTypeByName(::Platform::StringReference(pTypeInfo->boxedTypeIndex >= 0 ? TypeInfos[pTypeInfo->boxedTypeIndex].typeName : L"")));
         return userType;
     }
 }

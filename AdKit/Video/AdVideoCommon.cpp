@@ -2,7 +2,7 @@
 #include "AdVideoCommon.h"
 #include "Common.h"
 #include "../Platform/Microsoft/AdVideoMicrosoft.h"
-#include "../Platform/Microsoft/AdVideoVungle.h"
+#include "../Platform/Vungle/AdVideoVungle.h"
 
 /* @moon
 Ҫ����Windows���reference��Ҫ�����̵�consume windows runtime extension ����Ϊyes

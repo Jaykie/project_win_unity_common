@@ -19,13 +19,7 @@ AdVideoVungle ^ AdVideoVungle::Main()
 
 AdVideoVungle::AdVideoVungle()
 {
-	source = SOURCE_Vungle;
-	interstitialAd = ref new InterstitialAd();
-	// Attach event handlers
-	interstitialAd->ErrorOccurred += ref new EventHandler<AdErrorEventArgs ^>(this, &AdVideoVungle::OnErrorOccurred);
-	interstitialAd->AdReady += ref new EventHandler<Object ^>(this, &AdVideoVungle::OnAdReady);
-	interstitialAd->Cancelled += ref new EventHandler<Object ^>(this, &AdVideoVungle::OnAdCancelled);
-	interstitialAd->Completed += ref new EventHandler<Object ^>(this, &AdVideoVungle::OnAdCompleted);
+	source = SOURCE_Vungle 
 	isLoading = false;
 }
 
@@ -57,11 +51,7 @@ void AdVideoVungle::ShowAd()
 	//interstitialAd->RequestAd(AdType::Video, L"d25517cb-12d4-4699-8bdc-52040c712cab", L"11389925");
 	String ^ appId = AdConfig::Main()->GetAppId(SOURCE_VUNGLE);
 	String ^ adId = AdConfig::Main()->GetAdId(SOURCE_VUNGLE, AD_TYPE_VIDEO);
-	OutputDebugString(appId->Data());
-	OutputDebugString(L"\n");
-	OutputDebugString(adId->Data());
-	OutputDebugString(L"\n");
-	interstitialAd->RequestAd(AdType::Video, appId, adId);
+	 
 }
 
 //adinsert
@@ -90,12 +80,4 @@ void AdVideoVungle::OnAdCompleted(Object ^ sender, Object ^ e)
 	isLoading = false;
 	AdVideoCallBack::Main()->AdDidFinish();
 	//rootPage->NotifyUser("Ad completed", NotifyType::StatusMessage);
-}
-
-// This is an error handler for the interstitial ad.
-void AdVideoVungle::OnErrorOccurred(Object ^ sender, AdErrorEventArgs ^ e)
-{
-	isLoading = false;
-	AdVideoCallBack::Main()->AdDidFail();
-	//rootPage->NotifyUser("An error occurred. " + e->ErrorCode.ToString() + ": " + e->ErrorMessage, NotifyType::ErrorMessage);
-}
+} 
