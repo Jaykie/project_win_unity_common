@@ -91,6 +91,7 @@
     <ClInclude Include="AdKit\Platform\Vungle\AdBannerVungle.h" />
     <ClInclude Include="AdKit\Platform\Vungle\AdInsertVungle.h" />
     <ClInclude Include="AdKit\Platform\Vungle\AdVideoVungle.h" />
+    <ClInclude Include="Source.h" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AdKit\Insert\AdInsertBase.xaml">
