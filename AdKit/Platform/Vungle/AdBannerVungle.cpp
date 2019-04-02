@@ -43,7 +43,10 @@ void AdBannerVungle::InitAd(String^ appId, String^ appKey)
 
 	// // Programatically create an ad control. This must be done from the UI thread.
 
-
+	if (uiParent == nullptr)
+	{
+		return;
+	}
 
 	// // Set the application id and ad unit id
 	// // The application id and ad unit id can be obtained from Dev Center.
@@ -78,6 +81,10 @@ void AdBannerVungle::InitAd(String^ appId, String^ appKey)
 
 void AdBannerVungle::ShowAd(bool isShow)
 {
+	if (uiParent == nullptr)
+	{
+		return;
+	}
 
 	if (isShow) {
 		uiParent->Visibility = Windows::UI::Xaml::Visibility::Visible;
@@ -90,7 +97,10 @@ void AdBannerVungle::ShowAd(bool isShow)
  
 void AdBannerVungle::OnWindowResize() 
 {
- 
+	if (uiParent == nullptr)
+	{
+		return;
+	}
 }
  
 

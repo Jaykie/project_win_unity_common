@@ -88,7 +88,10 @@ AdInsertCommon::~AdInsertCommon()
 	CreateAdBase(strnew);
 	Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([this, strnew]
 	{
-		adInsertBase->InitAd(strnew,L" ");
+		if (adInsertBase != nullptr)
+		{
+			adInsertBase->InitAd(strnew, L" ");
+		}
 
 	}));
  }
@@ -97,7 +100,11 @@ AdInsertCommon::~AdInsertCommon()
  {
 	 Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([this]
 	 {
-		 adInsertBase->ShowAd();
+		
+		 if (adInsertBase != nullptr)
+		 {
+			 adInsertBase->ShowAd();
+		 }
 
 	 }));
  }

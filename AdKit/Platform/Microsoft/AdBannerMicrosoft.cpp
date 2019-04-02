@@ -40,7 +40,10 @@ AdBannerMicrosoft^ AdBannerMicrosoft::Main()
  
 void AdBannerMicrosoft::InitAd(String^ appId, String^ appKey)
 {
-
+	if (uiParent == nullptr)
+	{
+		return;
+	}
 	// Programatically create an ad control. This must be done from the UI thread.
 
 
@@ -78,7 +81,10 @@ void AdBannerMicrosoft::InitAd(String^ appId, String^ appKey)
 
 void AdBannerMicrosoft::ShowAd(bool isShow)
 {
-
+	if (uiParent == nullptr)
+	{
+		return;
+	}
 	if (isShow) {
 		uiParent->Visibility = Windows::UI::Xaml::Visibility::Visible;
 	}
@@ -90,6 +96,10 @@ void AdBannerMicrosoft::ShowAd(bool isShow)
  
 void AdBannerMicrosoft::OnWindowResize() 
 {
+	if (uiParent == nullptr)
+	{
+		return;
+	}
 	if ((adControl == nullptr)|| (uiParent == nullptr)) {
 		return;
 	}
