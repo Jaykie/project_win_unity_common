@@ -53,6 +53,9 @@
     <ClCompile Include="AdKit\Video\AdVideoCallBack.cpp" />
     <ClCompile Include="AdKit\Insert\AdInsertCallBack.cpp" />
     <ClCompile Include="AdKit\AdConfig\AdConfig.cpp" />
+    <ClCompile Include="AdKit\Platform\Vungle\AdBannerVungle.cpp" />
+    <ClCompile Include="AdKit\Platform\Vungle\AdInsertVungle.cpp" />
+    <ClCompile Include="AdKit\Platform\Vungle\AdVideoVungle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
@@ -85,6 +88,9 @@
     <ClInclude Include="AdKit\Video\AdVideoCallBack.h" />
     <ClInclude Include="AdKit\Insert\AdInsertCallBack.h" />
     <ClInclude Include="AdKit\AdConfig\AdConfig.h" />
+    <ClInclude Include="AdKit\Platform\Vungle\AdBannerVungle.h" />
+    <ClInclude Include="AdKit\Platform\Vungle\AdInsertVungle.h" />
+    <ClInclude Include="AdKit\Platform\Vungle\AdVideoVungle.h" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AdKit\Insert\AdInsertBase.xaml">

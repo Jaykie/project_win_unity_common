@@ -19,13 +19,8 @@ AdInsertVungle^ AdInsertVungle::Main()
 
 AdInsertVungle::AdInsertVungle()
 {
-	source = SOURCE_Vungle;
-	interstitialAd = ref new InterstitialAd();
-	// Attach event handlers
-	interstitialAd->ErrorOccurred += ref new EventHandler<AdErrorEventArgs^>(this, &AdInsertVungle::OnErrorOccurred);
-	interstitialAd->AdReady += ref new EventHandler<Object^>(this, &AdInsertVungle::OnAdReady);
-	interstitialAd->Cancelled += ref new EventHandler<Object^>(this, &AdInsertVungle::OnAdCancelled);
-	interstitialAd->Completed += ref new EventHandler<Object^>(this, &AdInsertVungle::OnAdCompleted);
+	source = SOURCE_VUNGLE;
+	 
 	isLoading = false;
 }
 
@@ -66,55 +61,8 @@ void AdInsertVungle::ShowAd()
 	OutputDebugString(L"\n");
 	OutputDebugString(adId->Data());
 	OutputDebugString(L"\n");
-	interstitialAd->RequestAd(AdType::Display, appId, adId);
-	//interstitialAd->RequestAd(AdType::Display, L"d25517cb-12d4-4699-8bdc-52040c712cab", L"11389925");
-	//interstitialAd->RequestAd(AdType::Display, L"9ngqjvv1jh1x", L"1100032471");
-	//interstitialAd->RequestAd(AdType::Display, L"9n1lt0gg40ht", L"1100032935");
-	  
+	 
 }
 
 
-
-//adinsert
-// This is an event handler for the interstitial ad. It is triggered when the interstitial ad information has been downloaded and is ready to show.
-void AdInsertVungle::OnAdReady(Object^ sender, Object^ e)
-{
-	isLoading = false;
-	// The ad is ready to show; show it.
-	interstitialAd->Show(); 
-	//�ر�app���ڱ�����
-	CoreApplication::GetCurrentView()->TitleBar->ExtendViewIntoTitleBar = true;
-	auto view = ApplicationView::GetForCurrentView();
-	//if (view->TryEnterFullScreenMode())
-	//{
-	//	ApplicationView::PreferredLaunchWindowingMode = ApplicationViewWindowingMode::FullScreen;
-	//	// The SizeChanged event will be raised when the entry to full-screen mode is complete.
-	//}
- 
-}
-
-// This is an event handler for the interstitial ad. It is triggered when the interstitial ad is cancelled.
-void AdInsertVungle::OnAdCancelled(Object^ sender, Object^ e)
-{
-	isLoading = false;
-	//rootPage->NotifyUser("Ad cancelled", NotifyType::StatusMessage);
-	AdInsertCallBack::Main()->AdDidClose();
-	
-}
-
-// This is an event handler for the interstitial ad. It is triggered when the interstitial ad has completed playback.
-void AdInsertVungle::OnAdCompleted(Object^ sender, Object^ e)
-{
-	isLoading = false;
-	AdInsertCallBack::Main()->AdDidFinish();
-	//rootPage->NotifyUser("Ad completed", NotifyType::StatusMessage);
-}
-
-// This is an error handler for the interstitial ad.
-void AdInsertVungle::OnErrorOccurred(Object^ sender, AdErrorEventArgs^ e)
-{
-	isLoading = false;
-	AdInsertCallBack::Main()->AdDidFail();
-	//rootPage->NotifyUser("An error occurred. " + e->ErrorCode.ToString() + ": " + e->ErrorMessage, NotifyType::ErrorMessage);
-}
  

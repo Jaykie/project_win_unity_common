@@ -24,7 +24,7 @@ using namespace Windows::Graphics::Display;
 
 AdBannerVungle::AdBannerVungle()
 {
-	adControl = ref new AdControl();
+	//adControl = ref new AdControl();
 }
 
 AdBannerVungle^ s_AdBannerVungle = nullptr;
@@ -90,37 +90,8 @@ void AdBannerVungle::ShowAd(bool isShow)
  
 void AdBannerVungle::OnWindowResize() 
 {
-	if ((adControl == nullptr)|| (uiParent == nullptr)) {
-		return;
-	}
-	Rect bounds = ApplicationView::GetForCurrentView()->VisibleBounds;
-	adHeight = (128.0 / 1536)*bounds.Height;
-	adWidth = bounds.Width;
-	// Set the dimensions
-	adControl->Width = adWidth;
-	//2048x1536
-	adControl->Height = adHeight;
-	//�߾����
-	auto margin = uiParent->Margin;
-	margin.Top = bounds.Height - adHeight;
-	uiParent->Margin = margin;
-}
-
-// This is an error handler for the ad control.
-void AdBannerVungle::OnErrorOccurred(Object^ sender, AdErrorEventArgs^ e)
-{
-	AdBannerCallBack::Main()->AdDidFail();
-	//rootPage->NotifyUser("An error occurred. " + e->ErrorCode.ToString() + ": " + e->ErrorMessage, NotifyType::ErrorMessage);
-}
-
-// This is an event handler for the ad control. It's invoked when the ad is refreshed.
-void AdBannerVungle::OnAdRefreshed(Object^ sender, RoutedEventArgs^ e)
-{
-	// We increment the ad count so that the message changes at every refresh.
-	//adCount++;
-	//rootPage->NotifyUser("Advertisement #" + adCount.ToString(), NotifyType::StatusMessage);
  
-	AdBannerCallBack::Main()->AdDidFinish(GetScreenPixsel(adWidth), GetScreenPixsel(adHeight));
 }
+ 
 
  

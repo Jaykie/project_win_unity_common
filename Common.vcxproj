@@ -358,6 +358,9 @@
     <ClInclude Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.h" />
     <ClInclude Include="AdKit\Platform\Microsoft\AdInsertMicrosoft.h" />
     <ClInclude Include="AdKit\Platform\Microsoft\AdVideoMicrosoft.h" />
+    <ClInclude Include="AdKit\Platform\Vungle\AdBannerVungle.h" />
+    <ClInclude Include="AdKit\Platform\Vungle\AdInsertVungle.h" />
+    <ClInclude Include="AdKit\Platform\Vungle\AdVideoVungle.h" />
     <ClInclude Include="AdKit\Video\AdVideoBase.xaml.h">
       <DependentUpon>AdKit\Video\AdVideoBase.xaml</DependentUpon>
     </ClInclude>
@@ -384,6 +387,9 @@
     <ClCompile Include="AdKit\Platform\Microsoft\AdBannerMicrosoft.cpp" />
     <ClCompile Include="AdKit\Platform\Microsoft\AdInsertMicrosoft.cpp" />
     <ClCompile Include="AdKit\Platform\Microsoft\AdVideoMicrosoft.cpp" />
+    <ClCompile Include="AdKit\Platform\Vungle\AdBannerVungle.cpp" />
+    <ClCompile Include="AdKit\Platform\Vungle\AdInsertVungle.cpp" />
+    <ClCompile Include="AdKit\Platform\Vungle\AdVideoVungle.cpp" />
     <ClCompile Include="AdKit\Video\AdVideoBase.xaml.cpp">
       <DependentUpon>AdKit\Video\AdVideoBase.xaml</DependentUpon>
     </ClCompile>
@@ -414,6 +420,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AdKit\Video\AdVideoBase.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="VungleSDK">
+      <HintPath>ThirdParty\VungleSDK\VungleSDK.winmd</HintPath>
+      <IsWinMDFile>true</IsWinMDFile>
+    </Reference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

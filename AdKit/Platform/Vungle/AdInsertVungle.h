@@ -1,8 +1,7 @@
 #pragma once 
 #include "AdKit/Insert/AdInsertBase.xaml.h"
 using namespace Platform;
-using namespace Windows::UI::Core;
-using namespace Vungle::Advertising::WinRT::UI;
+using namespace Windows::UI::Core; 
 namespace Common
 {
 	public ref class AdInsertVungle sealed ://
@@ -17,15 +16,10 @@ namespace Common
 		virtual void ShowAd() override;
 		virtual void SetObjectInfo(String^ objName, String^ objMethod) override;
 
-	private:
-		InterstitialAd^ interstitialAd;
+	private: 
 		bool isLoading;
 
-		void OnAdReady(Platform::Object^ sender, Platform::Object^ args);
-		void OnAdCancelled(Platform::Object^ sender, Platform::Object^ args);
-		void OnAdCompleted(Platform::Object^ sender, Platform::Object^ args);
-		void OnErrorOccurred(Platform::Object^ sender, Vungle::Advertising::WinRT::UI::AdErrorEventArgs^ args);
-
+	 
 	};
 }
 

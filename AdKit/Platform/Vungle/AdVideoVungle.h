@@ -19,7 +19,7 @@ namespace Common
 		 virtual void LoadAd() override;
 		 virtual void SetObjectInfo(String^ objName, String^ objMethod) override; 
 	private:
-		InterstitialAd^ interstitialAd;
+	//	InterstitialAd^ interstitialAd;
 		bool isLoading;
 
 		void OnAdReady(Platform::Object^ sender, Platform::Object^ args);

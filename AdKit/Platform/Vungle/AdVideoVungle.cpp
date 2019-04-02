@@ -19,8 +19,8 @@ AdVideoVungle ^ AdVideoVungle::Main()
 
 AdVideoVungle::AdVideoVungle()
 {
-	source = SOURCE_Vungle 
-	isLoading = false;
+	source = SOURCE_VUNGLE;
+	isLoading =false;
 }
 
 void AdVideoVungle::InitAd(String ^ appId, String ^ appKey)
@@ -60,8 +60,7 @@ void AdVideoVungle::OnAdReady(Object ^ sender, Object ^ e)
 {
 	isLoading = false;
 	// The ad is ready to show; show it.
-	interstitialAd->Show();
-	//�ر�app���ڱ�����
+ 
 	CoreApplication::GetCurrentView()->TitleBar->ExtendViewIntoTitleBar = true;
 }
 
