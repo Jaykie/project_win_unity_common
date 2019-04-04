@@ -18,13 +18,21 @@ namespace Common
 		 virtual void ShowAd() override;
 		 virtual void LoadAd() override;
 		 virtual void SetObjectInfo(String^ objName, String^ objMethod) override; 
+
+		 void InitSDK(String ^ appId, String ^ appKey);
+
+		 VungleSDK::VungleAd^ sdkInstance;
+
 	private:
 	//	InterstitialAd^ interstitialAd;
 		bool isLoading;
 
-		void OnAdReady(Platform::Object^ sender, Platform::Object^ args);
-		void OnAdCancelled(Platform::Object^ sender, Platform::Object^ args);
-		void OnAdCompleted(Platform::Object^ sender, Platform::Object^ args);
+		void OnInitCompleted(Platform::Object ^ sender, VungleSDK::ConfigEventArgs ^ args);
+		void OnOnAdPlayableChanged(Platform::Object ^sender, VungleSDK::AdPlayableEventArgs ^args);
+		void OnAdStart(Platform::Object^ sender, VungleSDK::AdEventArgs^ e);
+		void OnVideoView(Platform::Object^ sender, VungleSDK::AdViewEventArgs^ e);
+		void OnAdEnd(Platform::Object^ sender, VungleSDK::AdEndEventArgs^ e);
+		void Diagnostic(Platform::Object^ sender, VungleSDK::DiagnosticLogEvent^ e);
 
 	};
 }
