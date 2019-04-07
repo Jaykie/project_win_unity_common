@@ -1,10 +1,16 @@
 ﻿#include "pch.h"
 #include "AdConfig.h"
 #include "Common.h"
+#include "AdKit/Platform/Vungle/AdSDKInitVungle.h"
+
+using namespace Common;
 
  void AdConfig_InitPlatform(char* source, int type, char* appId, char* appKey, char* adKey)
  {
 	 AdConfig::Main()->InitPlatform(source, type, appId, appKey, adKey);
+	 if (strcmp(source,SOURCE_VUNGLE)==0) {
+		 AdSDKInitVungle::Main()->Init(appId, appKey, adKey);
+	 }
  }
  void AdConfig_SetNoAd()
  {
@@ -149,6 +155,9 @@
 			 ret = ad->videoId;
 			 break;
 		 }
+	 }
+	 if (ret.empty()) {
+		 return nullptr;
 	 }
 	 return string2PlatformString(ret);
  }

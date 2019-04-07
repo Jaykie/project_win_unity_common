@@ -19,7 +19,7 @@ namespace Common
 		 virtual void LoadAd() override;
 		 virtual void SetObjectInfo(String^ objName, String^ objMethod) override; 
 
-		 void InitSDK(String ^ appId, String ^ appKey);
+	
 
 		 VungleSDK::VungleAd^ sdkInstance;
 

@@ -3,6 +3,7 @@
 #include "Common.h"
 #include "AdKit/Video/AdVideoCommon.h"
 #include "AdKit/AdConfig/AdConfig.h"
+#include "AdSDKInitVungle.h"
 
 using namespace Common;
 using namespace Windows::Foundation;
@@ -30,37 +31,12 @@ AdVideoVungle::AdVideoVungle()
 }
 
 
-void AdVideoVungle::InitSDK(String ^ appId, String ^ appKey)
-{
-	std::string appID = PlatformString2string(appId);// "598a531697c455bc70001f98";
-	std::string placement1 = "DEFAULT59086";
-	std::string placement2 = "NONREWA96669";
-	std::string placement3 = "REWARDE30999";
-
-	//Platform::Array<Platform::String^>^ placementsAlt = ref new Platform::Array<Platform::String^>(3);
-	//placementsAlt[0] = ref new Platform::String(std::wstring(placement1.begin(), placement1.end()).c_str());
-
-	//Obtain Vungle SDK instance
-	Platform::Array<Platform::String^>^ placements = ref new Platform::Array<Platform::String^>(3);
-	placements[0] = ref new Platform::String(std::wstring(placement1.begin(), placement1.end()).c_str());
-	placements[1] = ref new Platform::String(std::wstring(placement2.begin(), placement2.end()).c_str());
-	placements[2] = ref new Platform::String(std::wstring(placement3.begin(), placement3.end()).c_str());
-	  sdkInstance = VungleSDK::AdFactory::GetInstance(ref new Platform::String(std::wstring(appID.begin(), appID.end()).c_str()), placements);
-
-	  //Register event handlers
-	  sdkInstance->OnAdPlayableChanged += ref new EventHandler<VungleSDK::AdPlayableEventArgs ^>(this, &AdVideoVungle::OnOnAdPlayableChanged);
-	  sdkInstance->OnAdStart += ref new EventHandler<VungleSDK::AdEventArgs ^>(this, &AdVideoVungle::OnAdStart);
-	  sdkInstance->OnAdEnd += ref new EventHandler<VungleSDK::AdEndEventArgs ^>(this, &AdVideoVungle::OnAdEnd);
-	  //sdkInstance->Diagnostic += ref new EventHandler<VungleSDK::DiagnosticLogEvent ^>(this, &CPP_sample::MainPage::Diagnostic);
-	  sdkInstance->OnInitCompleted += ref new EventHandler<VungleSDK::ConfigEventArgs ^>(this, &AdVideoVungle::OnInitCompleted);
-	 
-}
 
 void AdVideoVungle::InitAd(String ^ appId, String ^ appKey)
 {
 	strAppId = appId;
-	strAppKey = appKey;
-	//InitSDK(appId, appKey);
+	strAppKey = appKey; 
+	sdkInstance = AdSDKInitVungle::Main()->GetSDKInstance();
 }
 
 void AdVideoVungle::SetObjectInfo(String ^ objName, String ^ objMethod)
@@ -82,7 +58,7 @@ void AdVideoVungle::ShowAd()
 	//});
 	if (isLoading == true)
 	{
-		return;
+		//return;
 	}
 	isLoading = true;
 	//interstitialAd->RequestAd(AdType::Video, L"d25517cb-12d4-4699-8bdc-52040c712cab", L"11389925");
