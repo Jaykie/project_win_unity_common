@@ -90,5 +90,7 @@ void MediaPlayerCommon::Pause()
 
 void MediaPlayerCommon::OnMediaEnded(MediaPlayer^ p,Platform::Object^ obj)
 {
-	  
+	if (mpCallbackUnity != nullptr) {
+		mpCallbackUnity(MEDIA_EVENT_COMPLETE);
+	  }
 }
