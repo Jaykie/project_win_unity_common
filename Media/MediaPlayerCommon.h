@@ -6,8 +6,8 @@ using namespace Platform;
 using namespace Windows::Media::Playback;
 //using namespace Common;
 
-#define MEDIA_EVENT_OPEN "media_open
-#define MEDIA_EVENT_COMPLETE "media_complete" 
+#define MEDIA_EVENT_OPEN "media_open"
+#define MEDIA_EVENT_COMPLETE "media_complete"
 
 class MediaPlayerCommon
 {
