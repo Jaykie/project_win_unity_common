@@ -57,6 +57,7 @@
     <ClCompile Include="AdKit\Platform\Vungle\AdInsertVungle.cpp" />
     <ClCompile Include="AdKit\Platform\Vungle\AdVideoVungle.cpp" />
     <ClCompile Include="AdKit\Platform\Vungle\AdSDKInitVungle.cpp" />
+    <ClCompile Include="Media\MediaPlayerCommon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="AdKit\Platform\Vungle\AdVideoVungle.h" />
     <ClInclude Include="Source.h" />
     <ClInclude Include="AdKit\Platform\Vungle\AdSDKInitVungle.h" />
+    <ClInclude Include="Media\MediaPlayerCommon.h" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AdKit\Insert\AdInsertBase.xaml">

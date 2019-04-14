@@ -102,6 +102,7 @@ void AdVideoCommon::SetType(int type)
 
 void AdVideoCommon::LoadAd()
 {
+	//MediaPlayer_Open("https://cdn.feilaib.top/img/sounds/bg.mp3");
 
 	Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([this] {
 																									 if (adVideoBase != nullptr)

@@ -10,6 +10,8 @@
 typedef void(__stdcall *AdBannerCallbackUnity)(char *source, char *method, int w, int h);
 typedef void(__stdcall *AdInsertCallbackUnity)(char *source, char *method);
 typedef void(__stdcall *AdVideoCallbackUnity)(char *source, char *method);
+typedef void(__stdcall *MediaPlayerEventCallbackUnity)(char *status);
+
 
 /* @moon
 要引用Windows相关reference需要将工程的consume windows runtime extension 设置为yes
@@ -47,6 +49,14 @@ extern "C"
 	//adconfig
 	DLLExport void AdConfig_InitPlatform(char *source, int type, char *appId, char *appKey, char *adKey);
 	DLLExport void AdConfig_SetNoAd();
+
+	//Media
+	DLLExport void MediaPlayer_Open(char *url);
+	DLLExport void MediaPlayer_Close();
+	DLLExport void MediaPlayer_Play();
+	DLLExport void MediaPlayer_Pause();
+	DLLExport void MediaPlayer_SetCallbackUnity(MediaPlayerEventCallbackUnity callback); //c#回调函数
+
 
 	/*DLLExport void AdConfig_SetAdSource(int type, char* source);
 	DLLExport void AdConfig_SetAppId(char* source, char* appid);
