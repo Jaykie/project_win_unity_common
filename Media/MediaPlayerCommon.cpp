@@ -63,6 +63,8 @@ void MediaPlayerCommon::Open(String ^ url)
 	//	mp->MediaEnded = OnMediaEnded;
 
 		//mp->MediaEnded = ref new EventHandler<MediaPlayer ^>(this, &MediaPlayerCommon::OnMediaEnded);
+		//mp->MediaEnded = ref new EventHandler<MediaPlayer ^，Platform::Object^ >(&MediaPlayerCommon::OnMediaEnded);
+		//mp->MediaEnded += ref new EventHandler<MediaPlayer ^>(this, &MediaPlayerCommon::OnMediaEnded);
 	}
 } 
 void MediaPlayerCommon::Close()
@@ -86,7 +88,7 @@ void MediaPlayerCommon::Pause()
 	}
 }
 
-void MediaPlayerCommon::OnMediaEnded(MediaPlayer p,Platform::Object^ obj)
+void MediaPlayerCommon::OnMediaEnded(MediaPlayer^ p,Platform::Object^ obj)
 {
 	  
 }

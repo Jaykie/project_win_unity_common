@@ -17,7 +17,7 @@ public:
 	void Play();
 	void Pause();
 
-	void OnMediaEnded(MediaPlayer p, Platform::Object^ obj);
+	void OnMediaEnded(MediaPlayer^ p, Platform::Object^ obj);
 
 protected:
 	MediaPlayer^ mp;
