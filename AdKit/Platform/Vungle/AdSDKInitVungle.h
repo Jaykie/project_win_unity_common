@@ -15,22 +15,11 @@ internal:
 
 	void InitSDK(String ^ appId, String ^ appKey);
 	bool isPlacementEmpty(std::string placement);
-
-	VungleSDK::VungleAd^ GetSDKInstance();
-
-	VungleSDK::VungleAd^ sdkInstance;
+ 
+	 
 
 private:
-
-
-	void OnInitCompleted(Platform::Object ^ sender, VungleSDK::ConfigEventArgs ^ args);
-	void OnOnAdPlayableChanged(Platform::Object ^sender, VungleSDK::AdPlayableEventArgs ^args);
-	void OnAdStart(Platform::Object^ sender, VungleSDK::AdEventArgs^ e);
-	void OnVideoView(Platform::Object^ sender, VungleSDK::AdViewEventArgs^ e);
-	void OnAdEnd(Platform::Object^ sender, VungleSDK::AdEndEventArgs^ e);
-	void Diagnostic(Platform::Object^ sender, VungleSDK::DiagnosticLogEvent^ e);
-
-
+ 
 };
 }
 
